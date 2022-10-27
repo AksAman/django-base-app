@@ -1,3 +1,4 @@
+django
 black==22.3.0
 django-cors-headers==3.7.0
 django-debug-toolbar==3.2.4
