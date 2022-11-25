@@ -137,7 +137,7 @@ WSGI_APPLICATION = f"{PROJECT_NAME}.wsgi.application"
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 DATABASES = (
     {
-        "defaut": {
+        "default": {
             "ENGINE": "django.db.backends.postgresql_psycopg2",
             "NAME": config("DB_NAME"),
             "USER": config("DB_USER"),
