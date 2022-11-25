@@ -1,9 +1,10 @@
 import contextlib
 from typing import List
 from urllib.parse import urlparse
+from django.http import HttpRequest
 
 
-def _get_ip_address(request):
+def _get_ip_address(request: HttpRequest):
     import ipaddress
 
     """Get the remote ip address the request was generated from."""
@@ -27,17 +28,17 @@ def _get_ip_address(request):
     return ipaddr
 
 
-def _get_user_agent(request):
+def _get_user_agent(request: HttpRequest):
     """Get the user agent the request was generated from."""
     return request.META.get("HTTP_USER_AGENT", "NA")
 
 
-def get_request_origin(request):
+def get_request_origin(request: HttpRequest):
     """Get the request origin."""
     return request.META.get("HTTP_ORIGIN", None)
 
 
-def is_request_from_private_origin(request, private_origins: List[str]):
+def is_request_from_private_origin(request: HttpRequest, private_origins: List[str]):
     """
     Default function to determine whether to show the toolbar on a given page.
     """
@@ -48,7 +49,7 @@ def is_request_from_private_origin(request, private_origins: List[str]):
     return domain in private_origins
 
 
-def is_internal_ip(request, internal_ips, debug=False):
+def is_internal_ip(request: HttpRequest, internal_ips: List[str], debug=False):
     """
     Default function to determine whether to show the toolbar on a given page.
     """
