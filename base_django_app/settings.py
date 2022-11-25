@@ -15,7 +15,7 @@ from pathlib import Path
 from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+PROJECT_NAME = BASE_DIR.name
 from .logging_config import *  # noqa: F403, F401
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -112,7 +112,7 @@ MIDDLEWARE = INIT_MIDDLEWARES + [
 ]
 
 
-ROOT_URLCONF = "findmyfund.urls"
+ROOT_URLCONF = f"{PROJECT_NAME}.urls"
 
 TEMPLATES = [
     {
@@ -130,7 +130,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = "findmyfund.wsgi.application"
+WSGI_APPLICATION = f"{PROJECT_NAME}.wsgi.application"
 
 
 # Database
